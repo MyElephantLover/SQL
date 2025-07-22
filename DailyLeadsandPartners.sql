@@ -2,7 +2,6 @@
 -- This question is looking for the total number, which means count(), not sum()
 -- For aggregation, we need "group by"
 
-
 select date_id, 
     make_name, 
     count(distinct lead_id) as "unique_leads", 
