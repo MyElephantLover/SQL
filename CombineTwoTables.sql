@@ -6,3 +6,6 @@ from Person a left join Address b
 on a.PersonID = b.PersonID
 ;
 
+-- left join on the Address table, so if the personID does not have city or state listed
+-- in the Address, it would show as null
+
