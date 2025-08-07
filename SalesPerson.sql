@@ -13,7 +13,6 @@ from
 -- this solution is not correct
 -- correct answer TBD
 
-
 -- correct solution
 
 select s.name
