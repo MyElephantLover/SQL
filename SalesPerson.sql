@@ -12,3 +12,17 @@ from
 
 -- this solution is not correct
 -- correct answer TBD
+
+
+-- correct solution
+
+select s.name
+from SalesPerson s
+where s.sales_id not in
+(
+    select o.order_id
+    from Orders o left join Company c on o.com_id = c.com_id
+    where c.name = 'RED'
+)
+
+-- left outer join can be written as left join
