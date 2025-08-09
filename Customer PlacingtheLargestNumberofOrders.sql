@@ -9,9 +9,9 @@
 select customer_number
 from (
     select count(*) as total_orders,
-    customer_id,
+    customer_number,
     rank() over(order by count(*) desc) as rnk
-    from Orders group by customer_id
+    from Orders group by customer_number
 ) k where rnk = 1
 
 -- official solution
