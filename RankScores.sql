@@ -8,4 +8,5 @@ select score, dense_rank() over(order by score desc) as rank
 from Scores 
 order by rank desc 
 ;
+-- dense_rank() keeps ties the same rank and the next ranking number should be the next consecutive integer value
 
