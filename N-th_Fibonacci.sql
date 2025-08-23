@@ -14,9 +14,9 @@ with recursive fib(n, res, next) AS
 (
     select 1, 0, 1 -- fibo(1) = 0
     union all
-    select n + 1, next, res + next
+    select n + 1, next, res + next -- fibo(n+1) = fibo(n) + fibo(n - 1)
     from fib
-    where n < (select mx(n) from fibo)
+    where n < (select max(n) from fibo)
 )
 
 select distinct f.n, f.res from fib f join fibo on f.n = fibo.n  
