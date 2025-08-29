@@ -12,13 +12,18 @@
 
 with recursive fib(n, res, next) AS
 (
-    select 1, 0, 1 -- fibo(1) = 0
+    select 1::BIGINT, 0::BIGINT, 1::bigint -- fibo(1) = 0
     union all
     select n + 1, next, res + next -- fibo(n+1) = fibo(n) + fibo(n - 1)
     from fib
-    where n < (select max(n) from fibo)
+    where n < least((select max(n) from fibo), 80)
 )
 
 select distinct f.n, f.res from fib f join fibo on f.n = fibo.n  
 order by f.n asc;
+
+-- the solution to work around the error "PG::NumericValueOutOfRange: ERROR: integer out of range"
+-- is to cast the integer to the data type ::Bigint
+
+
 
