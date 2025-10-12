@@ -4,16 +4,11 @@
 --   this column and your result in a column named 'res'
 --   ordered ascending by 'n'
 
-SELECT
-    n,
-    FLOOR((n * n + (n - 1) * (n - 1)) / 2)::bigint AS res
-FROM
-    spiral
-ORDER BY
-    n;
+SELECT n, (n + 1) * (n + 1) / 2 - 1 AS res 
+FROM spiral
+ORDER BY 1
 
--- OEIS A274059: a(n) = floor(n^2 / 2) + (n mod 2)
--- a(n) = (n * n) / 2     if n is even  
--- a(n) = (n * n + 1) / 2 if n is odd
+-- Arithmettic progression: the sequence of numbers that the difference from any succeeding terms to any preceeding terms remains constant throughtout the sequence
+
 
 
