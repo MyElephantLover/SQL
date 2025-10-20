@@ -26,17 +26,17 @@ ranked_customers AS (
 ),
 top_20_percent AS (
   SELECT
-    SUM(rental_count) AS top_20_rentals_count
+    SUM(rental_count)::INTEGER AS top_20_rentals_count
   FROM ranked_customers
   WHERE quantile = 1  -- top 20% customers by rental count
 ),
 total AS (
   SELECT
-    SUM(rental_count) AS total_rentals_count
+    SUM(rental_count)::INTEGER AS total_rentals_count
   FROM customer_rentals
 )
 SELECT
-  t.top_20_rentals_count AS "top_20%_rentals_count",
+  t.top_20_rentals_count::INTEGER AS "top_20%_rentals_count",
   total.total_rentals_count,
   ROUND(
     (t.top_20_rentals_count::NUMERIC / total.total_rentals_count) * 100,
