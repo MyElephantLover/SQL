@@ -7,3 +7,5 @@ select number,
         else number * 9
         end as res
 from multiplication
+;
+
