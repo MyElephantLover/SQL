@@ -38,7 +38,7 @@ $$
         (
             select n 
             union all
-            select val - ((val/10000)%10 + (val/1000)%10 + (val/10)%10 + val%10)
+            select val - ((val/10000)%10 + (val/1000)%10 + (val/10)%10 + val%10) -- digit_sum()
             from recursive_step
             where val not in (select id from fruit)
         )
