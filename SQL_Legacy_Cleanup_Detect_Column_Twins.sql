@@ -26,13 +26,13 @@ $$
 begin
     execute format('select array_agg(json_build_array("%s")->>0) from legacy_memebers order by 1', name)
     into result;
-    -- json_build_array build a json array from the column value and ->>0 extract the first element into text
+    -- json_build_array build a json array from the column value and '->>0' extract the first element into text
 end;
 $$
 
 select a.column_name col1, b.column_name col2 
 from information_schema.columns a join 
-information_schema.columns b on a.table_name = 'legacy_members'
+information_schema.columns b on a.table_name = 'legacy_members' -- be aware to use single quote to refer to literals
 and b.table_name = 'legacy_members'
 and not ('id' in (a.column_name, b.column_name))
 and a.column_name < b.column_name -- col1 < col2
