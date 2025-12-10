@@ -94,7 +94,7 @@ declare     n         int:= currentn;
             fruit_name text;
 begin
     -- basic input check -- 
-    if n < 10 or >= 1000 then
+    if n < 10 or >= 10000 then
         raise exception 'input n (%) must satisfy n >= 10 and n < 10000', n; -- '%'' is a placeholder
     end if;
 
