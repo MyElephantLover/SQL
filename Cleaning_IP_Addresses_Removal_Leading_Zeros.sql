@@ -12,6 +12,7 @@ select id,
         -- ^ meathes string; | means OR, \. match dots
         -- \d matches any meaningful digits
         -- 'g' means 'global'
+        -- '\1\3' means to replace with group 1 (`.)) and group 3 (\d)
         from ip_addresses
 order by id desc;
 
