@@ -18,7 +18,7 @@ order by id desc;
 -- Others Solution --
 
 select id,
-        ip:inet as cleaned_ip
+        ip:inet as cleaned_ip --inet is a native PostgreSQL to store IP addresses
 from ip_addresses
 order by id desc;
 
