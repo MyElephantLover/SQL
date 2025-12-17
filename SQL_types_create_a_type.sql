@@ -86,7 +86,7 @@ BEGIN
     d := -d;
   END IF;
 
-  RETURN ROW(n, d)::rational;
+  RETURN ROW(n, d)::rational; -- ROW() here construct a row value (a composite value)
 END;
 $$;
 
@@ -179,7 +179,7 @@ DECLARE
   denom numeric;
   numer numeric;
 BEGIN
-  s := scale(x);
+  s := scale(x); -- scale() means to return the number of digits to the decimal point to the right of a numeric
   IF s <= 0 THEN
     RETURN rational_make(x, 1);
   END IF;
