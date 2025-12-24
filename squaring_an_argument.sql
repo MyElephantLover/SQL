@@ -5,7 +5,7 @@
 -- return a table with:
 --   this column and your result in a column named 'res'
 
-create or replace function sqrt_func()
+create or replace function sqrt_func() -- in this question, the table square is an input, not an argument
 returns table(n int, res bigint)
 language plpgsql 
 as $$
