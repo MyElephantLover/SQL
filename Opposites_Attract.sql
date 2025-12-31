@@ -18,3 +18,11 @@ end;
 $$
 
 select * from flower();
+
+
+-- other approach --
+
+select flower1, flower2, mod(flower1 + flower2, 2) = 1 as res from love;
+
+select flower1, flower2, (flower1 + flower2) % 2 = 1 as res from love;
+
